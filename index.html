@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Semangat buat Alya</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+      overflow-x: hidden;
+    }
+    .flower {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: fall linear infinite;
+      opacity: 0.8;
+      z-index: 0;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+    .animal-pop {
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 80px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: animalPop 1s ease-in-out;
+      z-index: 30;
+    }
+    @keyframes animalPop {
+      0% { transform: translate(-50%, 50px) scale(0); opacity: 0; }
+      40% { transform: translate(-50%, -30px) scale(1.2); opacity: 1; }
+      100% { transform: translate(-50%, -100px) scale(0); opacity: 0; }
+    }
+    .fade-scale {
+      animation: fadeScale 0.5s ease-in-out;
+    }
+    @keyframes fadeScale {
+      0% { opacity: 0; transform: scale(0.5) rotate(-5deg); }
+      50% { transform: scale(1.05) rotate(3deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+    .reveal-message {
+      display: none;
+      font-size: 0.875rem;
+      color: #4c51bf;
+      margin-top: 1rem;
+    }
+    .photo-wrapper {
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .photo-wrapper.rip::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/paper-fibers.png'), rgba(255,255,255,0.8);
+      background-size: cover;
+      clip-path: polygon(0 0, 50% 100%, 100% 0);
+      animation: tear 1s ease-out forwards;
+      z-index: 10;
+    }
+    @keyframes tear {
+      0% { clip-path: polygon(0 0, 50% 0, 100% 0); }
+      100% { clip-path: polygon(0 0, 50% 100%, 100% 0); }
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-6">
+
+<audio id="whoopSound"
